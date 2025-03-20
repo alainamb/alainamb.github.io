@@ -1,0 +1,747 @@
+:root {
+    /* Light Mode Colors */
+    --background-light: #556B2F;
+    --section-bg-light: #F5F5F5;
+    --text-light: #000000;
+    --link-light: #7B4F9D;
+    --button-light: #7B4F9D;
+    --button-hover-light: #432b55;
+    --button-text-light: #FFFFFF;
+    --image-bg-light: #FFFFFF;
+    --border-light: #e1e1e1;
+    --contact-icon-light: #000000;
+
+    /* Shadow colors */
+    --shadow-color-light: rgba(0, 0, 0, 0.1);
+    --shadow-color-hover-light: rgba(0, 0, 0, 0.15);
+    
+    /* Shadow definitions */
+    --shadow-standard-light: 0 4px 8px var(--shadow-color-light);
+    --shadow-hover-light: 0 10px 20px var(--shadow-color-hover-light);
+    --shadow-top-light: 0 -4px 8px var(--shadow-color-light);
+    
+    /* Dark Mode Colors */
+    --background-dark: #2D3339;
+    --section-bg-dark: #38471f;
+    --text-dark: #FFFFFF;
+    --link-dark: #6DABFF;
+    --button-dark: #6DABFF;
+    --button-hover-dark: #004099;
+    --button-text-dark: #FFFFFF;
+    --card-bg-dark: #2D3339;
+    --image-bg-dark: #f2f2f2;
+    --border-dark: #2D3339;
+    --underline-dark: #FFFFFF;
+    --contact-icon-dark: #FFFFFF;
+
+    /* Shadow colors */
+    --shadow-color-dark: rgba(0, 0, 0, 0.25);          /* Increased opacity */
+    --shadow-color-hover-dark: rgba(0, 0, 0, 0.35);    /* Increased opacity */
+    
+    /* Shadow definitions */
+    --shadow-standard-dark: 0 4px 8px var(--shadow-color-dark);
+    --shadow-hover-dark: 0 10px 20px var(--shadow-color-hover-dark);
+    --shadow-top-dark: 0 -4px 8px var(--shadow-color-dark);
+
+    /* Standardized Spacing */
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 40px;
+
+    /* Standardized breakpoints */
+    --breakpoint-sm: 480px;  /* Small devices (phones) */
+    --breakpoint-md: 768px;  /* Medium devices (tablets) */
+    --breakpoint-lg: 992px;  /* Large devices (desktops) */
+}
+
+/* Force consistent font rendering in Chrome */
+html {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+/* STANDARD STYLES */
+body {
+    font-family: Arial, sans-serif;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-light);
+    color: var(--text-light);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode for body */
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+/* Section container styles */
+.section-container {
+    max-width: 1200px;
+    margin: var(--space-md) auto;
+    padding: var(--space-md) var(--space-lg) var(--space-lg) var(--space-lg); 
+    background-color: var(--section-bg-light);
+    border-radius: 8px;
+    box-shadow: var(--shadow-standard-light);
+    overflow: hidden;
+}
+
+/* Dark mode for section container */
+body.dark-mode .section-container {
+    background-color: var(--section-bg-dark);
+    box-shadow: var(--shadow-standard-dark);
+}
+
+/* Button styles */
+.button {
+    display: block; /* Change from inline-block to block */
+    margin: 20px auto 0;
+    padding: 8px 16px;
+    background-color: var(--button-light);
+    color: var(--button-text-light);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    width: fit-content; /* Explicitly set width to auto */
+    /* Or set a specific width like width: 120px; */
+}
+
+.button:hover {
+    background-color: var(--button-hover-light);
+    text-decoration: none;
+}
+
+/* Dark mode for button styles */
+body.dark-mode .button {
+    color: var(--button-text-dark); 
+    background-color: var(--button-dark);
+}
+
+body.dark-mode .button:hover {
+    background-color: var(--button-hover-dark);
+}
+
+/* Header styles */
+h1 {
+    font-size: clamp(2rem, 6vw, 3rem);
+  }
+  
+h2 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    padding: 0 20px 0;
+  }
+  
+h3 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    padding: 0 20px 0;
+  }
+  
+h4 {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+  }
+
+/* Navigational container styles */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-lg); /* Match horizontal padding with other sections */
+    margin-top: 20px; /* Specific top margin */
+    background-color: var(--section-bg-light);
+    border-radius: 8px;
+    width: calc(100% - 2 * var(--space-lg)); /* Account for padding in width calculation */
+}
+
+/* Dark mode for nav container */
+body.dark-mode .nav-container {
+    background-color: var(--section-bg-dark);
+}
+
+.site-title {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-weight: bold;
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+/* Dark mode for site title */
+body.dark-mode .site-title {
+    color: var(--text-dark);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+/* Language toggle styles */
+.language-toggle {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.language-link {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.language-link.active {
+    font-weight: bold;
+    text-decoration: none;
+    pointer-events: none; /* Disable clicking on the active language */
+}
+
+.language-link:not(.active):hover {
+    color: var(--link-light);
+    text-decoration: underline;
+}
+
+/* Dark mode for language toggle */
+body.dark-mode .language-link {
+    color: var(--text-dark);
+}
+
+body.dark-mode .language-link:not(.active):hover {
+    color: var(--link-dark);
+}
+
+/* Theme toggle styles */
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.theme-icon {
+    font-size: 1.2rem;
+    color: #ffc107; /* Default light mode color (yellow) */
+}
+
+/* Dark mode for theme icon */
+body.dark-mode .theme-icon {
+    color: #adb5bd; /* Dark mode color (gray) */
+}
+
+/* Responsive adjustments */
+@media (max-width: var(--breakpoint-sm)) {
+    .nav-container {
+        flex-direction: column;
+        gap: var(--space-sm);
+        padding: var(--space-sm);
+    }
+    
+    .site-title {
+        margin-bottom: var(--space-xs);
+    }
+}
+
+/* Button styles */
+mode-button {
+    background-color: var(--button-light);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+mode-button:hover {
+    background-color: #6a8239; /* Slightly darker shade of button color */
+}
+
+/* Dark mode for mode-button */
+body.dark-mode mode-button {
+    background-color: var(--button-dark);
+}
+
+body.dark-mode mode-button:hover {
+    background-color: var(--button-hover-dark);
+}
+
+.theme-toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.theme-icon-btn {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.theme-icon {
+    font-size: 1.2rem;
+}
+
+#lightModeBtn {
+    color: #ffc107; /* Yellow color for lit bulb */
+    background-color: transparent;
+}
+
+#darkModeBtn {
+    color: #6c757d; /* Gray color for unlit bulb */
+    background-color: transparent;
+}
+
+#lightModeBtn.active {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+}
+
+#darkModeBtn.active {
+    background-color: rgba(108, 117, 125, 0.15);
+    color: #6c757d;
+}
+
+/* Dark mode theme buttons */
+body.dark-mode #lightModeBtn {
+    color: #ffc107;
+}
+
+body.dark-mode #darkModeBtn {
+    color: #adb5bd;
+}
+
+body.dark-mode #lightModeBtn.active {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+}
+
+body.dark-mode #darkModeBtn.active {
+    background-color: rgba(108, 117, 125, 0.15);
+    color: #adb5bd;
+}
+
+/* About section */
+.about-section {
+    display: flex;
+    gap: 20px; /* Creates space between image and content */
+    align-items: center;
+}
+
+/* About me image section (left) */
+.about-image {
+    flex: 1;
+    max-width: 33%;
+}
+
+.about-image img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 50%; /* This makes the image circular */
+    border: 3px solid var(--border-light); /* Optional: adds a subtle border */
+}
+
+/* Dark mode for about image */
+body.dark-mode .about-image img {
+    border: 3px solid var(--border-dark);
+}
+
+/* About me content section (right) */
+.about-content {
+    flex: 2;
+}
+
+/* Responsive layout */
+@media (max-width: var(--breakpoint-md)) {
+    .about-section {
+        flex-direction: column;
+    }
+    
+    .about-image {
+        max-width: 60%;
+    }
+}
+
+/* Projects section */
+.category-title {
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-light);
+}
+
+/* Dark mode for category title */
+body.dark-mode .category-title {
+    border-bottom: 2px solid var(--underline-dark);
+}
+
+/* Grid layouts */
+.project-grid {
+    display: grid;
+    grid-gap: 30px;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.translation-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.dei-grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dei-grid.project-grid {
+    margin-bottom: 0; /* Override the 50px margin for the DEI grid specifically */
+}
+
+/* Project cards */
+.project-card {
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Set a fixed height for the entire card */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover-light);
+}
+
+/* Dark mode for project card */
+body.dark-mode .project-card {
+    background: var(--card-bg-dark);
+    border: 1px solid var(--border-dark);
+}
+
+body.dark-mode .project-card:hover {
+    box-shadow: var(--shadow-hover-dark);
+}
+
+.project-image {
+    width: 100%;
+    height: auto;      /* Instead of fixed 200px */
+    max-height: 200px; /* Optional: still limit the maximum height */
+    object-fit: contain; /* Instead of cover */
+    background: var(--image-bg-light);
+}
+
+body.dark-mode .project-image {
+    background: var(--image-bg-dark);
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: var(--background-dark);
+    color: var(--text-dark);
+    justify-content: space-between;
+    flex: 1; /* This makes the content take up available space */
+    position: relative; /* Creates positioning context */
+}
+
+.project-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.project-description {
+    margin-bottom: 10px;
+}
+
+/* Responsive layout */
+@media (max-width: var(--breakpoint-md)) {
+    .translation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Skills Section Styles */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.skill-category {
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow-standard-light);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover-light);
+}
+
+.skill-category .category-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-light);
+    color: var(--text-light);
+}
+
+/* Dark mode for skill category */
+body.dark-mode .skill-category {
+    background: var(--card-bg-dark);
+    box-shadow: var(--shadow-standard-dark);
+}
+
+body.dark-mode .skill-category:hover {
+    box-shadow: var(--shadow-hover-dark);
+}
+
+body.dark-mode .skill-category .category-title {
+    color: var(--text-dark);
+    border-bottom-color: var(--border-dark);
+}
+
+.skill-list {
+    list-style-type: disc;
+    padding-left: 20px; /* Add left padding for bullets */
+    margin: 0;
+}
+
+.skill-item {
+    padding: 8px 0;
+    position: relative;
+    display: list-item; /* Change from flex to list-item */
+}
+
+/* Create a separate class for items that need flex layout */
+.skill-item-with-level {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* Dark mode for skill item border */
+body.dark-mode .skill-item:not(:last-child) {
+    border-bottom-color: var(--border-dark);
+}
+
+/* Dark mode for skill level */
+body.dark-mode .skill-level {
+    color: #aaa;
+}
+
+/* Responsive adjustments */
+@media (max-width: var(--breakpoint-md)) {
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .skill-category {
+        padding: 15px;
+    }
+}
+
+/* Contact Section Styles */
+.contact-card {
+    display: flex;
+    place-items: center;
+    background-color: var(--section-bg-light);
+}
+
+/* Dark mode for contact card */
+body.dark-mode .contact-card {
+    background-color: var(--section-bg-dark);
+}
+
+/* Image section (left) */
+.contact-card-image {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--image-bg-light); /* Using your light lavender color */
+    border-radius: 8px;
+    border: 2px solid var(--border-light);
+    min-height: 300px;
+}
+
+/* Dark mode for contact card image */
+body.dark-mode .contact-card-image {
+    background-color: var(--image-bg-dark);
+}
+
+.contact-card-image img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+
+/* Content section (right) */
+.contact-card-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.contact-card-content h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--text-light);
+    padding: 0;
+}
+
+/* Dark mode for contact card heading */
+body.dark-mode .contact-card-content h2 {
+    color: var(--text-dark);
+}
+
+.contact-cta {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    color: var(--text-light);
+}
+
+/* Dark mode for contact CTA */
+body.dark-mode .contact-cta {
+    color: var(--text-dark);
+}
+
+/* Contact information styling */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1rem;
+}
+
+.contact-icon {
+    width: 20px;
+    color: var(--contact-icon-light);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Dark mode for contact icon */
+body.dark-mode .contact-icon {
+    color: var(--contact-icon-dark);
+}
+
+/* Link styles */
+a {
+    color: var(--link-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+/* Dark mode for links */
+body.dark-mode a {
+    color: var(--link-dark);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive layout */
+@media (max-width: var(--breakpoint-md)) {
+    .contact-card {
+        flex-direction: column;
+    }
+    
+    .contact-card-image {
+        max-width: 100%;
+        width: 100%;
+        padding: 30px 30px 15px 30px;
+    }
+    
+    .contact-card-image img {
+        max-width: 150px;
+        border-radius: 50%;
+    }
+}
+
+@media (max-width: var(--breakpoint-sm)) {
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .contact-icon {
+        margin-bottom: 5px;
+    }
+}
+
+/* Footer Section Styles */
+.footer-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 5px auto 0 auto; /* Further reduced from 10px to 5px top margin */
+    background-color: var(--section-bg-light);
+    border-radius: 8px 8px 0 0;
+    box-shadow: var(--shadow-top-light);
+    overflow: hidden;
+    justify-content: center;
+    bottom: 0;
+}
+
+/* Dark mode for footer */
+body.dark-mode .footer-container {
+    background-color: var(--section-bg-dark);
+    box-shadow: var(--shadow-top-dark);
+}
+
+/* Add styles for the div inside footer */
+.footer-container div {
+    width: 100%;
+    text-align: center;
+    padding: 5px; /* Further reduced from 8px to 5px */
+}
+
+/* Remove default margins from paragraphs in footer */
+.footer-container p {
+    margin: 0; /* Completely removed margins (from 2px) */
+    line-height: 1.3; /* Added tighter line height control */
+}
+
+/* Additional selector to target the exact footer structure shown in screenshot */
+.footer-container, #footer, .footer-section-container, .footer-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
